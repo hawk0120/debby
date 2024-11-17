@@ -12,7 +12,7 @@ public class CommandRegistry {
         commands.put("READ", new ReadCommand(file));
         //commands.put("UPDATE", new UpdateCommand(file));
         //commands.put("INSERT", new InsertCommand(file));
-        //commands.put("DELETE", new DeleteCommand(file));
+        commands.put("DELETE", new DeleteCommand(file));
     }
 
     public Command getCommand(String input) {
