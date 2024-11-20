@@ -1,24 +1,30 @@
 package org.example;
-import java.io.IOException;
-import java.util.*;
 
+import java.util.Scanner;
+import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
-        String input;
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources/debby.txt");
+        Commander commander = new Commander(file);
 
-        while(true) {
-            System.out.print("Sqlite> ");
-            input = scan.next().trim();
+        System.out.print("Welcome to the Debby Database System \n" +
+																"Please enter a CRUD command");
 
-            if (input.equals(".exit")) {
-                System.exit(0);
-            } else {
-                System.out.println("Unrecognized Command: " + input);
-
+        while (true) {
+            try {
+								System.out.println(">");
+                String input = scan.next();
+                if ("exit".equalsIgnoreCase(input)) {
+                    System.exit(0);
+                }
+                commander.handle(input);
+            } catch (Exception e) {
+                System.out.println("No input provided. Exiting...");
+                break;
             }
         }
+        scan.close();
     }
 }
