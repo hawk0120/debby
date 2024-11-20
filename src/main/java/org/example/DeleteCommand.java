@@ -1,10 +1,7 @@
 package org.example;
 
-import java.util.List;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.stream.Stream;
 
 public class DeleteCommand implements Command {
     private final File file;
@@ -24,10 +21,14 @@ public class DeleteCommand implements Command {
            
 				    System.out.println("Initiating Delete");
            
-						// Find match and remove it. 
-						// TOODO
-						br.lines().filter(line -> line.contains("Cats"))
-										.forEach( line -> {	pw.print(line);});
+						br.lines()
+												.forEach(System.out::println);
+//										.forEach( line -> {	
+//										if(true){
+//												System.out.println("The line contains cats");	
+//														//pw.print(line);
+//														};
+//												});
 								 
 
 				} catch (Exception e) {
